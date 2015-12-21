@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-4 col-md-1"></div>
+        <div class="col-lg-4 col-md-10 middle-section-background-loginpage">
+            <header><h1><strong>Owner Login</strong></h1></header>
+
+            <form class="form-horizontal">
+                <div class="form-group ">
+                    <legend></legend>
+                    <label for="ownerName" class="col-lg-3 col-md-12">Email-Id: </label>
+                    <div class="col-lg-8 col-lg-offset-1 col-md-12 ">
+                        <input type="text" class="form-control" id="ownerName" autofocus ng-model="loginVm.owner.name">
+                        <span class="help-inline text-danger" ng-show="loginVm.invalidLogin"><strong>Invalid Email-id</strong></span>
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="form-group">
+                    <label for="ownerPassword" class="col-lg-3 col-md-12">Password: </label>
+                    <div class="col-lg-8 col-lg-offset-1 col-md-12 ">
+                        <input type="text" class="form-control" id="ownerPassword" ng-model="loginVm.owner.password">
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="form-group last-element">
+                    <div class="col-lg-3 col-md-1"></div>
+                    <div class="form-group col-lg-6">
+                        <div class="col-lg-offset-2">
+                            <button type="button" class=" btn btn-info" ng-click="loginVm.submit()">Submit</button>
+                            <button type="button" class="btn btn-info col-lg-offset-2" ng-click="loginVm.cancel()">cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-1"></div>
+                </div>
+            </form>
+        </div>
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-4 col-md-1"></div>
+    </div>
+</div>

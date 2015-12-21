@@ -1,0 +1,164 @@
+<!-- ng-view placeholder -->
+<!-- main div placeholder  -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10 middle-section-background">
+            <ul class="nav nav-tabs">
+                <li class="active col-lg-4 col-md-4 col-md-4 restaurant-tab-links">
+                    <a href="#/restaurantProfile">Restaurant Profile</a>
+                </li>
+                <li class="col-lg-4 col-md-4 restaurant-tab-links">
+                    <a href="">App Settings</a>
+                </li>
+                <li class="col-lg-4 col-md-4 restaurant-tab-links">
+                    <a href="#/ownerReservations">Reservations</a>
+                </li>
+            </ul>
+            <header><h1><strong>Restaurant Profile</strong></h1></header>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="restaurantName" class="col-lg-2 col-md-12">Restaurant Name: </label>
+                    <div class="col-lg-3 col-md-12 ">
+                        <input type="text" class="form-control"
+                               ng-model="resProfileVm.restaurantProfile.restaurantdetails.name"
+                               id="restaurantName"
+                               autofocus>
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="form-group">
+                    <label for="restaurantDescription" class="col-lg-2 col-md-12">Description: </label>
+                    <div class="col-lg-10 col-md-12">
+                        <textarea class="form-control" rows="5"
+                                  ng-model="resProfileVm.restaurantProfile.restaurantdetails.description"
+                                  id="restaurantDescription"></textarea>
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="form-group">
+                    <label for="restaurantPhoneNumber" class="col-lg-2 col-md-12">Phone Number: </label>
+                    <div class="col-lg-3 col-md-12 ">
+                        <input type="text" class="form-control"
+                               ng-model="resProfileVm.restaurantProfile.restaurantdetails.phone"
+                               id="restaurantPhoneNumber">
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-12">Restaurant Timings: </label>
+                    <fieldset class="timings-fieldset col-lg-5 col-md-12">
+                        <div class="form-group">
+                            <label for="mondayTimingStart" class="col-lg-3 col-md-12">Monday: </label>
+                            <div class="col-lg-3 col-md-6 ">
+                                <input type="text" class="form-control" id="mondayTimingStart" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.monday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+                                <input type="text" class="form-control" id="mondayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.monday.end">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tuesdayTimingStart" class="col-lg-3 col-md-12">Tuesday: </label>
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="text" class="form-control" id="tuesdayTimingStart" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.tuesday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+
+                                <input type="text" class="form-control" id="tuesdayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.monday.end">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="wendnesdayTimingStart" class="col-lg-3 col-md-12">Wednesday: </label>
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="text" class="form-control" id="wendnesdayTimingStart"
+                                       placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.wednesday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+
+                                <input type="text" class="form-control" id="wendnesdayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.wendnesday.end">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="thursdayTimingStart" class="col-lg-3 col-md-12">Thursday: </label>
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="text" class="form-control" id="thursdayTimingStart" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.thursday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+
+                                <input type="text" class="form-control" id="thursdayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.thursday.end">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fridayTimingStart" class="col-lg-3 col-md-12">Friday: </label>
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="text" class="form-control" id="fridayTimingStart" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.friday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+                                <input type="text" class="form-control" id="fridayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.friday.end">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="saturdayTimingStart" class="col-lg-3 col-md-12">Saturday: </label>
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="text" class="form-control" id="saturdayTimingStart" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.saturday.start">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <span><strong>to</strong></span>
+                            </div>
+                            <div class="col-lg-3 col-md-6 ">
+                                <input type="text" class="form-control" id="saturdayTimingEnd" placeholder="hh:mm:ss"
+                                       ng-model="resProfileVm.restaurantProfile.timings.saturday.end">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <legend></legend>
+                <div class="form-group last-element">
+                    <div class="col-lg-3 col-md-1"></div>
+                    <div class="form-group col-lg-6">
+                        <div class="col-lg-offset-2">
+                            <button type="button" class=" btn btn-info" ng-click="resProfileVm.submit()">
+                                Submit
+                            </button>
+                            <button type="button" class="btn btn-info col-lg-offset-2">Close</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-1"></div>
+                </div>
+            </form>
+
+
+        </div>
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+    </div>
+</div>
+<!-- ng-view placeholder -->
+<!-- main div placeholder  -->
