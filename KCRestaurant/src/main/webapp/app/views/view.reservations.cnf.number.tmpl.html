@@ -1,0 +1,45 @@
+<!-- main div placeholder  -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10 middle-section-background-Customer">
+            <header class="customer-header"><h1><strong>View your Reservations</strong></h1></header>
+            <legend></legend>
+            <form class="form-horizontal" name="thisForm">
+                <div class="form-group">
+                    <label class="col-lg-6 col-lg-offset-4 col-md-12"><span><h4><strong>Enter your Confimration
+                        Number</strong></h4></span> </label>
+                    <fieldset class="timings-fieldset col-lg-10 col-lg-offset-1 col-md-12">
+                        <div class="form-group has-error">
+                            <div class="col-lg-4 col-lg-offset-4 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="viewRsCnfVm.cnfNumber"
+                                       name="cnfNumber" aria-describedby="helpBlock1" autofocus aria-required="true" >
+                                <span id="helpBlock1" ng-show="(!thisForm.cnfNumber.$pristine && !viewRsCnfVm.cnfNumber.length)
+                                                                     || (viewRsCnfVm.showWarning && !(viewRsCnfVm.cnfNumber.length))">
+                                   <strong>Confimation number cannot be empty !</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <legend></legend>
+                <div class="form-group last-element">
+                    <div class="col-lg-3 col-md-1"></div>
+                    <div class="form-group col-lg-6">
+                        <div class=" col-lg-offset-5">
+                            <button type="submit" class="col-lg-5 btn btn-success" ng-click="viewRsCnfVm.submit()"
+                                    ng-disabled="!thisForm.cnfNumber.$pristine && !viewRsCnfVm.cnfNumber.length">
+                                Go
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-1"></div>
+                </div>
+            </form>
+        </div>
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+    </div>
+</div>
+<!-- ng-view placeholder -->

@@ -29,6 +29,14 @@ body{
     border-radius: 1%;
 }
 
+.middle-section-background-Customer{
+    background-color: floralwhite;
+    border-radius: 1%;
+    border: 2px solid white;
+    min-height: 300px;
+    margin-top: 5%;
+}
+
 .home-page-middle-section-background{
 }
 
@@ -48,6 +56,10 @@ header{
     text-align: center;
     color: white;
     text-shadow: 2px 2px 10px black;
+}
+
+.customer-header{
+    text-shadow: 1px 1px 5px black;
 }
 
 footer{

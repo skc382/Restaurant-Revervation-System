@@ -1,0 +1,100 @@
+ <!-- main div placeholder  -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Empty div to align the middle div-->
+            <div class="col-lg-2 col-md-1"></div>
+            <div class="col-lg-8 col-md-10 middle-section-background-Customer">
+                <header class="customer-header"><h1><strong>New Reservation</strong></h1></header>
+                <legend></legend>
+                <table class="table table-hover col-lg-6">
+                    <thead>
+                    <th class="success">Labels</th>
+                    <th class="success">Your Input</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <div class="col-lg-5 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="name" placeholder="Enter name">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <div class="col-lg-5 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="Email"
+                                       placeholder="Enter email-id">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number:</td>
+                        <td>
+                            <div class="col-lg-5 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="phone"
+                                       placeholder="Enter phoneNumber">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time:</td>
+                        <td>
+                            <div class="col-lg-2 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="starttime"
+                                       placeholder="hh:mm:ss">
+                            </div>
+                            <div class="col-lg-1 col-md-2 ">
+                                <strong>to</strong>
+                            </div>
+                            <div class="col-lg-2 col-md-12">
+                                <input type="text" class="form-control col-lg-3 col-md-12" ng-model="" id="endtime"
+                                       placeholder="hh:mm:ss">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Table Size:</td>
+                        <td>
+                            <div class="col-lg-5 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="tablesize"
+                                       placeholder="Enter size in numbers">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Table Structure:</td>
+                        <td>
+                            <div class="col-lg-5 col-md-12 ">
+                                <input type="text" class="form-control" ng-model="" id="tablestructure"
+                                       placeholder="Enter round, square or oval">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="form-group last-element">
+                    <div class="col-lg-3 col-md-1"></div>
+
+                    <div class="form-group col-lg-5">
+                        <div class=" col-lg-offset-1">
+                            <button type="button" class="col-lg-5  col-md-6 btn btn-success" ng-click="resProfileVm.submit()">
+                                Create Reservation
+                            </button>
+                            <button type="button" class="col-lg-4 col-lg-offset-1 col-md-6 col-md-offset-2 btn btn-success" ng-click="resProfileVm.submit()">
+                                Discard
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-1"></div>
+                </div>
+            </div>
+            <!-- Empty div to align the middle div-->
+            <div class="col-lg-2 col-md-1"></div>
+        </div>
+    </div>
+    <!-- main div placeholder -->

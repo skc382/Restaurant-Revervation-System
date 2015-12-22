@@ -1,0 +1,135 @@
+<!-- main div placeholder  -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10 middle-section-background-Customer">
+            <header class="customer-header"><h1><strong>View your Reservations</strong></h1></header>
+            <legend></legend>
+            <table class="table table-hover col-lg-6">
+                <thead>
+                <th class="success">Key</th>
+                <th class="success">Value</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Confirmation Number:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable">{{viewRsDisplayVm.details.obj.cnfName}}</td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="text" class="form-control" id="cnfNumber"
+                                   placeholder="Enter Confirmation Number"
+                                   ng-model="viewRsDisplayVm.details.obj.cnfName" required = "true">
+                        </div>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable">{{viewRsDisplayVm.details.obj.name}}</td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="text" class="form-control col-lg-3 col-md-4" id="name"
+                                   placeholder="Enter Name"
+                                   ng-model="viewRsDisplayVm.details.obj.name">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable">{{viewRsDisplayVm.details.obj.email}}</td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email-id"
+                                   ng-model="viewRsDisplayVm.details.obj.email">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable">{{viewRsDisplayVm.details.obj.phoneNumber}}</td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-4 col-md-4">
+                            <input type="text" class="form-control" id="phoneNumber"
+                                   placeholder="Enter phone number"
+                                   ng-model="viewRsDisplayVm.details.obj.phoneNumber">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable">
+                        <span>{{viewRsDisplayVm.details.obj.startTime}} <strong>to</strong> {{viewRsDisplayVm.details.obj.endTime}}</span>
+                    </td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-2 col-md-2">
+                            <input type="text" class="form-control" id="startTime"
+                                   placeholder="hh:mm:ss"
+                                   ng-model="viewRsDisplayVm.details.obj.startTime">
+                        </div>
+                        <div class="col-lg-1 col-md-1 ">
+                            <strong>to</strong>
+                        </div>
+                        <div class="col-lg-2 col-md-2 ">
+                            <input type="text" class="form-control" id="endTime"
+                                   placeholder="hh:mm:ss"
+                                   ng-model="viewRsDisplayVm.details.obj.endTime">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Table Size:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable"><span>{{viewRsDisplayVm.details.obj.tableSize}}</span></td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-2 col-md-2">
+                            <input type="text" class="form-control" id="tableSize" placeholder="Enter size"
+                                   ng-model="viewRsDisplayVm.details.obj.tableSize">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Table Structure:</td>
+                    <td ng-show="!viewRsDisplayVm.isEditable"><span>{{viewRsDisplayVm.details.obj.tableShape}}</span>
+                    </td>
+                    <td ng-show="viewRsDisplayVm.isEditable">
+                        <div class="col-lg-2 col-md-2">
+                            <input type="text" class="form-control" id="tableStructure" placeholder="Enter shape"
+                                   ng-model="viewRsDisplayVm.details.obj.tableShape">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+            <div class="form-group last-element">
+                <div class="col-lg-3 col-md-1"></div>
+                <div class="form-group col-lg-6">
+                    <div class=" col-lg-offset-4 col-md-offset-4" ng-show="!viewRsDisplayVm.isEditable">
+                        <button type="button" class="col-lg-5 col-md-5 btn btn-success"
+                                ng-click="viewRsDisplayVm.edit()">
+                            Edit
+                        </button>
+                    </div>
+                    <div class=" col-lg-offset-2 col-md-offset-2" ng-show="viewRsDisplayVm.isEditable">
+                        <button type="button" class="col-lg-3 col-md-4 btn btn-success"
+                                ng-click="viewRsDisplayVm.save()">
+                            Save
+                        </button>
+                    </div>
+                    <div class=" col-lg-offset-5 col-md-offset-2" ng-show="viewRsDisplayVm.isEditable">
+                        <button type="button" class="col-lg-3 col-md-4 btn btn-success"
+                                ng-click="viewRsDisplayVm.save()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-1"></div>
+            </div>
+        </div>
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+    </div>
+</div>
+<!-- ng-view placeholder -->

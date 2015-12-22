@@ -23,6 +23,19 @@
                 controller: 'LoginPageCtrl',
                 controllerAs: 'loginVm'
             })
+            .when('/newReservation', {
+                templateUrl: 'app/views/new.reservation.tmpl.html'
+            })
+            .when('/viewReservationCnfNumber', {
+                templateUrl: 'app/views/view.reservations.cnf.number.tmpl.html',
+                controller: 'ViewReservationCnfNumberCtrl',
+                controllerAs: 'viewRsCnfVm'
+            })
+            .when('/viewReservationDisplay/:confirmationId', {
+                templateUrl: 'app/views/view.reservations.display.tmpl.html',
+                controller: 'ViewReservationDisplayCtrl',
+                controllerAs: 'viewRsDisplayVm'
+            })
             .when('/restaurantProfile', {
                 templateUrl: 'app/views/restaurant.profile.tmpl.html',
                 controller: 'RestaurantProfileCtrl',
