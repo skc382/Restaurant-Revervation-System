@@ -8,14 +8,17 @@
             <legend></legend>
             <form class="form-horizontal" name="thisForm">
                 <div class="form-group">
-                    <label class="col-lg-6 col-lg-offset-4 col-md-12"><span><h4><strong>Enter your Confimration
-                        Number</strong></h4></span> </label>
-                    <fieldset class="timings-fieldset col-lg-10 col-lg-offset-1 col-md-12">
-                        <div class="form-group has-error">
-                            <div class="col-lg-4 col-lg-offset-4 col-md-12 ">
+
+                    <fieldset class="timings-fieldset col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                        <div  class="col-lg-4 col-lg-offset-4 col-md-12 col-md-offset-4 has-success">
+                            <label class="control-label text-right"><span><h4><strong>Enter your Confimration
+                                Number</strong></h4></span> </label>
+                        </div>
+                        <div class="form-group has-warning">
+                            <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
                                 <input type="text" class="form-control" ng-model="viewRsCnfVm.cnfNumber"
-                                       name="cnfNumber" aria-describedby="helpBlock1" autofocus aria-required="true" >
-                                <span id="helpBlock1" ng-show="(!thisForm.cnfNumber.$pristine && !viewRsCnfVm.cnfNumber.length)
+                                       name="cnfNumber" aria-describedby="helpBlock1" autofocus>
+                                <span id="helpBlock1" class="help-block" ng-show="(!thisForm.cnfNumber.$pristine && !viewRsCnfVm.cnfNumber.length)
                                                                      || (viewRsCnfVm.showWarning && !(viewRsCnfVm.cnfNumber.length))">
                                    <strong>Confimation number cannot be empty !</strong>
                                 </span>
@@ -27,8 +30,8 @@
                 <div class="form-group last-element">
                     <div class="col-lg-3 col-md-1"></div>
                     <div class="form-group col-lg-6">
-                        <div class=" col-lg-offset-5">
-                            <button type="submit" class="col-lg-5 btn btn-success" ng-click="viewRsCnfVm.submit()"
+                        <div class=" col-lg-offset-5 col-md-offset-5 col-xs-offset-5">
+                            <button type="button" class="col-lg-5 col-md-3 btn btn-success" ng-click="viewRsCnfVm.submit()"
                                     ng-disabled="!thisForm.cnfNumber.$pristine && !viewRsCnfVm.cnfNumber.length">
                                 Go
                             </button>

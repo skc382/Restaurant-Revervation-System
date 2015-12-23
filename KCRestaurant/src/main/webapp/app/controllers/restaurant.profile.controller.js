@@ -6,10 +6,11 @@
     angular.module('restaurant')
         .controller('RestaurantProfileCtrl', RestaurantProfileCtrl);
 
-    RestaurantProfileCtrl.$inject = ['$rootScope', 'dataServices'];
+    RestaurantProfileCtrl.$inject = ['$rootScope', 'dataServices', '$route', '$templateCache'];
 
-    function RestaurantProfileCtrl($rootScope, dataServices) {
+    function RestaurantProfileCtrl($rootScope, dataServices, $route, $templateCache) {
         var resProfileVm = this;
+        resProfileVm.isEditable = false;
         resProfileVm.restaurantProfile = {
                 restaurantdetails:{
                     name:{}, description:{},phone:{}
@@ -59,8 +60,22 @@
         }
 
         resProfileVm.submit = function () {
-            console.dir(resProfileVm.restaurantProfile.restaurantdetails.timings);
+        	resProfileVm.isEditable = false;
+//            console.dir(resProfileVm.restaurantProfile.restaurantdetails.timings);
         }
+        
+        resProfileVm.cancel = function () {
+            resProfileVm.isEditable = false;
+//            var currentPageTemplate = $route.current.templateUrl;
+//            $templateCache.remove(currentPageTemplate);
+            $route.reload();
+        }
+        
+        resProfileVm.edit = function () {
+            resProfileVm.isEditable = true;
+//            console.dir(resProfileVm.restaurantProfile.restaurantdetails.timings);
+        }
+        
     }
 
 })();

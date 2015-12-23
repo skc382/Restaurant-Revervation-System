@@ -4,9 +4,9 @@
     angular.module('restaurant')
         .controller('ViewReservationDisplayCtrl', ViewReservationDisplayCtrl);
 
-    ViewReservationDisplayCtrl.$inject = ['dataServices', '$routeParams', '$location'];
+    ViewReservationDisplayCtrl.$inject = ['dataServices', '$routeParams', '$route'];
 
-    function ViewReservationDisplayCtrl(dataServices, $routeParams, $location) {
+    function ViewReservationDisplayCtrl(dataServices, $routeParams, $route) {
         var viewRsDisplayVm = this;
         viewRsDisplayVm.isEditable = false;
         viewRsDisplayVm.details = {};
@@ -43,7 +43,7 @@
         }
 
         viewRsDisplayVm.cancel = function () {
-            $location.path('/viewReservationDisplay/');
+        	$route.reload();
         }
     }
 })();
