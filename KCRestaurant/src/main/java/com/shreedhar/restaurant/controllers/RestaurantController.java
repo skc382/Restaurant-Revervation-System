@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shreedhar.restaurant.model.HotelTimings;
 import com.shreedhar.restaurant.model.Reservations;
 import com.shreedhar.restaurant.model.User;
@@ -33,7 +35,7 @@ public class RestaurantController {
 
 	@RequestMapping(value="/loginn", method = RequestMethod.POST)
 	public ResponseEntity<User> ownerLogin(@RequestBody User user) {
-		User retUser = service.validateOwner(user.getEmailId());
+		User retUser = service.validateUser(user.getEmailId());
 		if(retUser == null){
 			return new ResponseEntity<User>(new User(), HttpStatus.FORBIDDEN);
 		}
@@ -60,9 +62,33 @@ public class RestaurantController {
 		return new ResponseEntity<Reservations>(reservations, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/access_denied", method = RequestMethod.POST)
-	public ResponseEntity<String> ownerAccessDenied() {
-		return new ResponseEntity<String>("Got Fucked", HttpStatus.OK);
+	@RequestMapping(value = "/owner/reservations/create", method = RequestMethod.POST)
+	public ResponseEntity<Object> createReservation(@RequestBody String reservationString) {
+		ObjectMapper mapper = new ObjectMapper();
+		User user;
+		Reservations reservation, retReservation;
+		Integer seatinSize;
+		JsonNode requestNode;
+		try {
+			requestNode = mapper.readTree(reservationString);
+			user = mapper.convertValue(requestNode.get("user"), User.class);
+			
+			reservation = mapper.convertValue(requestNode.get("reservation"), Reservations.class);
+			seatinSize = Integer.parseInt(mapper.convertValue(requestNode.get("seatinSize"), String.class));
+			
+			reservationsService.createReservations(user, reservation, seatinSize);
+			retReservation = reservationsService.getReservationByConfimationNumber(reservation.getConfirmationId());
+			
+			return new ResponseEntity<Object>(retReservation, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			
+		}
 	}
+	
+	
+	
 }
 

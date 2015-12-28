@@ -20,18 +20,21 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" >
                 <li><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-th"></span> Gallery</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" ng-click="$event.preventDefault();" data-toggle="dropdown" href="#">
-                        <span class="glyphicon glyphicon-th-list"></span> Reservations</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#/newReservation"><span class="glyphicon glyphicon-glass"></span> New Reservation</a></li>
-                        <li><a href="#/viewReservationCnfNumber"><span class="glyphicon glyphicon-eye-open"></span> View Reservation</a></li>
+                <li uib-dropdown on-toggle="toggled(open)" ng-cloak>
+                    <a href="#" uib-dropdown-toggle><span class="glyphicon glyphicon-th-list"></span> Reservations</a>
+                    <ul  class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+                        <li  role="menuitem"><a href="#/newReservation"><span class="glyphicon glyphicon-glass"></span> New
+                            Reservation</a></li>
+                        <li  role="menuitem"><a href="#/viewReservationCnfNumber"><span class="glyphicon glyphicon-eye-open"></span> View
+                            Reservation</a></li>
                     </ul>
                 </li>
-                <li><a ng-href="{{homeVm.hasLoggedIn ? '' :'#/login'}}"><span class="glyphicon glyphicon-user"></span>
+
+                <li><a href="{{homeVm.hasLoggedIn ? '#/logout':'#/login'}}" ng-cloak><span
+                        class="glyphicon glyphicon-user"></span>
                     {{homeVm.hasLoggedIn ? ' Logout':' Owner Login'}}</a></li>
                 <!--#/login <li><a href="#myModal" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
             </ul>
@@ -50,8 +53,12 @@
 <!-- BootStrap and Jquery from CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!--<script src="app/dist/ui-bootstrap-tpls-0.14.3.min.js"></script>-->
+
+
 <script src="app/dirPagination.js"></script>
 <script src="app/restaurant-app.js"></script>
 <script src="app/services/data.services.js"></script>
@@ -62,6 +69,7 @@
 <script src="app/controllers/owner.reservations.details.controller.js"></script>
 <script src="app/controllers/view.reservations.cnf.number.controller.js"></script>
 <script src="app/controllers/view.reservations.display.controller.js"></script>
+<script src="app/controllers/new.reservation.controller.js"></script>
 
 </body>
 </html>

@@ -14,16 +14,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired 
 	private UserDao dao;
 	
-//	@Override
-//	public boolean validateOwner(User user) {
-//		User localUser = dao.findByEmail(user.getEmailId());
-//		
-//		System.out.println(localUser);
-//		return (localUser != null);
-//	}
-	
 	@Override
-	public User validateOwner(String emailId) {
+	public User validateUser(String emailId) {
 		User localUser = dao.findByEmail(emailId);
 		
 		if(localUser == null){
@@ -35,4 +27,8 @@ public class UserServiceImpl implements UserService{
 		return localUser;
 	}
 
+	@Override
+	public void createUser(User user) {
+		dao.saveUser(user);		
+	}
 }

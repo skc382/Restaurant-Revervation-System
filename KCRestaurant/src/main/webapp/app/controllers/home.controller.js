@@ -8,19 +8,15 @@
     angular.module('restaurant')
         .controller('HomePageCtrl', HomePageCtrl);
 
-    HomePageCtrl.$inject = ['$rootScope'];
+    HomePageCtrl.$inject = ['$rootScope', '$scope'];
 
-    function HomePageCtrl($rootScope){
+    function HomePageCtrl($rootScope, $scope){
         var homeVm = this;
         homeVm.invalidLogin = false;
         homeVm.hasLoggedIn = false;
 
-        homeVm.toggleHasLoggedIn = function(){
-        	homeVm.hasLoggedIn = !homeVm.hasLoggedIn; 
-        };
-        
         $rootScope.$on('loggedin', function(event, args){
-            console.log("logged in is: "+ args);
+            console.log("logged in as: "+ args);
             homeVm.hasLoggedIn = args;
         });
 
@@ -28,6 +24,20 @@
             console.log("invalidLogin is: "+ args);
             homeVm.invalidLogin = args;
         });
+
+        $scope.status = {
+            isopen: false
+        };
+
+        $scope.toggled = function(open) {
+            console.log('Dropdown is now: ', open);
+        };
+
+        $scope.toggleDropdown = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.status.isopen = !$scope.status.isopen;
+        };
     }
 
 })();

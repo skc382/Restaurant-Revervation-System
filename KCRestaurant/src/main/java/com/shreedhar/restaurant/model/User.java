@@ -13,14 +13,14 @@ public class User {
 	@Column(name="email_id", nullable=false)
 	String emailId;
 	
-	@Column(name="Password", nullable=false)
+	@Column(name="Password")
 	String password;
 	
 	@Column(name="user_name")
 	String userName;
 	
 	@Column(name="Phone")
-	Integer phone;
+	String phone;
 	
 	@Column(name="user_type")
 	String userType;
@@ -30,7 +30,7 @@ public class User {
 	}
 	
 	public User(String emailId, String password, String userName,
-			Integer phone, String userType) {
+			String phone, String userType) {
 		super();
 		this.emailId = emailId;
 		this.password = password;
@@ -63,11 +63,11 @@ public class User {
 		this.userName = userName;
 	}
 
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

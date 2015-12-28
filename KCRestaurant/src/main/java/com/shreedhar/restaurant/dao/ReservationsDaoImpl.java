@@ -25,5 +25,11 @@ public class ReservationsDaoImpl extends AbstractDao<Integer, Reservations> impl
 		crit.add(Restrictions.eq("confirmationId", confirmationNumber));
 		return (Reservations) crit.uniqueResult();
 	}
+	
+	@Override
+	public void createReservation(Reservations reservationObj)
+	{
+		persist(reservationObj);
+	}
 
 }

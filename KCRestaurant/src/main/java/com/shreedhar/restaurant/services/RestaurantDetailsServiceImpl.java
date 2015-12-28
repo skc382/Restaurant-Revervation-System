@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shreedhar.restaurant.dao.HotelTimingsDao;
 import com.shreedhar.restaurant.model.HotelTimings;
+import com.shreedhar.restaurant.model.Reservations;
+import com.shreedhar.restaurant.model.User;
 
 @Service("restaurantDetailsService")
 @Transactional
@@ -19,6 +21,5 @@ public class RestaurantDetailsServiceImpl implements RestaurantDetailsService{
 	@Override
 	public List<HotelTimings> getRestaurantDetails() {
 		return timingsDao.getHotelAllTimings();
-	}
-	
+	}	
 }

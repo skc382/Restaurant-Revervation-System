@@ -4,14 +4,12 @@
 (function () {
     'use strict';
 
-    angular.module('restaurant', ['ngRoute','angularUtils.directives.dirPagination'])
+    angular.module('restaurant', ['ngRoute','angularUtils.directives.dirPagination', 'ngAnimate', 'ui.bootstrap'])
         .config(moduleConfig);
 
-    moduleConfig.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
+    moduleConfig.$inject = ['$routeProvider', '$httpProvider'];
 
-    function moduleConfig($routeProvider, $httpProvider, $locationProvider) {
-    	
-    	
+    function moduleConfig($routeProvider, $httpProvider) {
         $routeProvider
             .when('/home', {
                 templateUrl: 'app/views/homepage.tmpl.html',
@@ -24,7 +22,9 @@
                 controllerAs: 'loginVm'
             })
             .when('/newReservation', {
-                templateUrl: 'app/views/new.reservation.tmpl.html'
+                templateUrl: 'app/views/new.reservation.tmpl.html',
+                controller: 'NewReservationCtrl',
+                controllerAs: 'newRsVm'
             })
             .when('/viewReservationCnfNumber', {
                 templateUrl: 'app/views/view.reservations.cnf.number.tmpl.html',
@@ -51,9 +51,11 @@
                 controller: 'OwnerReservationDetailsCtrl',
                 controllerAs: 'ownerRsDtVm'
             })
+
             .otherwise({
             redirectTo: '/home'
         });
-        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';   
+
+        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     }
 })();
