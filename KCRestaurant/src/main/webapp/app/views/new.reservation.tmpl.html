@@ -5,98 +5,132 @@
         <div class="col-lg-2 col-md-1"></div>
         <div class="col-lg-8 col-md-10 middle-section-background-Customer">
             <header class="customer-header"><h1><strong>New Reservation</strong></h1></header>
-            <table class="table col-lg-6">
+            <form name="newFrm">
+                <table class="table col-lg-6">
+                    <tbody>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Name:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-5 col-md-6">
+                                <input type="text" class="col-lg-offset-4 form-control"
+                                       ng-model="newRsVm.reservationString.user.userName" id="name" name="namee"
+                                       placeholder="Enter name" aria-describedby="hlpblkname" required>
+                                <span name="hlpblkname" class="col-lg-offset-4 help-block" ng-show="newFrm.namee.$dirty && newFrm.namee.$error.required">
+                                    <strong>Name cannot be blank</strong></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Email:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-5 col-md-6">
+                                <input type="email" class="col-lg-offset-4 form-control"
+                                       ng-model="newRsVm.reservationString.user.emailId" id="Email" name="email"
+                                       aria-describedby="hlpblkemail" placeholder="Enter email-id" required>
 
-                <tbody>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Name:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-5 col-md-6">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.user.userName" id="name"
-                                   placeholder="Enter name" aria-describedby="hlpblkname">
-                                <span name="hlpblkname" class="help-block">
-                                    Name cannot be blah</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Email:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-5 col-md-6">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.user.emailId" id="Email"
-                                   placeholder="Enter email-id">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Phone Number:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-5 col-md-6">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.user.phone" id="phone"
-                                   placeholder="Enter phoneNumber">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Date:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-5 col-md-6">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.reservation.date" id="date"
-                                   placeholder="YYYY-MM-DD">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Time:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-2 col-md-4 col-lg-offset-1">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.reservation.startTime" id="starttime"
-                                   placeholder="hh:mm:ss">
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-lg-offset-1">
-                            <strong>to</strong>
-                        </div>
-                        <div class="col-lg-2 col-md-4">
-                            <input type="text" class="form-control" ng-model="newRsVm.reservationString.reservation.endTime" id="endtime"
-                                   placeholder="hh:mm:ss">
-                        </div>
-                        <div class="col-lg-4 col-md-4">
+                                <span name="hlpblkemail" class="col-lg-offset-4 help-block" ng-show="newFrm.email.$dirty && newFrm.email.$error.required">
+                                    <strong>Email cannot be blank</strong></span>
+                                <span name="hlpblkemail" class="col-lg-offset-4 help-block" ng-show="newFrm.email.$dirty && newFrm.email.$error.email">
+                                    <strong>Not an Email !</strong></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Phone Number:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-5 col-md-6">
+                                <input type="number" class="col-lg-offset-4 form-control" ng-minlength="10" ng-maxlength="10"
+                                       ng-model="newRsVm.reservationString.user.phone" id="phone" name="phone"
+                                       aria-describedby="hlpblkphone" placeholder="Enter phoneNumber" required>
+
+                                <span name="hlpblkphone" class="col-lg-offset-4 help-block"
+                                      ng-show="(newFrm.phone.$error.required || newFrm.phone.$error.number) && newFrm.phone.$dirty">
+                                    <strong>Phone number cannot be blank</strong></span>
+                                <span name="hlpblkphone" class="col-lg-offset-4 help-block"
+                                      ng-show="((newFrm.phone.$error.minlength || newFrm.phone.$error.maxlength) && newFrm.phone.$dirty)">
+                                    <strong>Phone number should be 10 digits</strong></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Date:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-5 col-md-6">
+                                <p class="col-lg-offset-4 input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{newRsVm.format}}"
+                                           ng-model="newRsVm.reservationString.reservation.date"
+                                           is-open="newRsVm.status.opened" min-date="newRsVm.minDate"
+                                           max-date="newRsVm.maxDate" datepicker-options="newRsVm.dateOptions"
+                                           date-disabled="newRsVm.disabled(date, mode)" ng-required="true"
+                                           close-text="Close"/>
+                                <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default" ng-click="newRsVm.open($event)"><i
+                                         class="glyphicon glyphicon-calendar"></i></button>
+                                 </span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Time:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-2 col-md-4 col-lg-offset-1">
+                                <input type="time" class="col-lg-offset-4 form-control"
+                                       ng-model="newRsVm.placeholder.startTime" id="starttime" name="starttime"
+                                       aria-describedby="hlpblkstart" placeholder="hh:mm:ss" required>
+                                <span name="hlpblkstart" class="col-lg-offset-4 help-block" ng-show="newFrm.starttime.$dirty && newFrm.starttime.$error.required">
+                                    <strong>Starttime cannot be blank</strong></span>
+                            </div>
+                            <div class="col-lg-1 col-md-2 col-lg-offset-1">
+                                <strong>to</strong>
+                            </div>
+                            <div class="col-lg-2 col-md-4">
+                                <input type="time" class="form-control" ng-model="newRsVm.placeholder.endTime"
+                                       id="endtime" name="endtime"
+                                       aria-describedby="hlpblkend" placeholder="hh:mm:ss" required>
+                                <span name="hlpblkend" class="col-lg-offset-4 help-block" ng-show="newFrm.endtime.$dirty && newFrm.endtime.$error.required">
+                                    <strong>endtime cannot be blank</strong></span>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
                             <span class="help-block" ng-show="newRsVm.isTimeAvailable">
-                                    The time you chose is un-available. Please choose a different time.</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=" has-success">
-                        <label class="control-label" for="name">Party Size:</label>
-                    </td>
-                    <td class=" has-success">
-                        <div class="col-lg-5 col-md-6 ">
-                            <input type="text" class="col-lg-offset-4 form-control" ng-model="newRsVm.reservationString.seatinSize" id="partysize"
-                                   placeholder="Enter size in numbers">
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
+                                    <strong>The time you chose is un-available. <br> Please choose a different time.</strong></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" has-success">
+                            <label class="control-label" for="name">Party Size:</label>
+                        </td>
+                        <td class=" has-success">
+                            <div class="col-lg-5 col-md-6 ">
+                                <input type="number" class="col-lg-offset-4 form-control"
+                                       ng-model="newRsVm.reservationString.seatinSize" id="partysize" name="partysize"
+                                       aria-describedby="hlpblksize" placeholder="Enter size in numbers" required>
+                                <span name="hlpblksize" class="col-lg-offset-4 help-block" ng-show="newFrm.partysize.$dirty && newFrm.partysize.$error.required">
+                                    <strong>Party size cannot be blank</strong></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
 
-            </table>
-
+                </table>
+            </form>
             <div class="form-group last-element">
                 <div class="col-lg-3 col-md-1"></div>
 
                 <div class="form-group col-lg-5">
                     <div class=" col-lg-offset-1 col-md-offset-3 col-xs-offset-5">
-                        <button type="button" class="col-lg-5  col-md-5 btn btn-success"
+                        <button type="button" class="col-lg-5  col-md-5 btn btn-success" ng-disabled="newFrm.$invalid"
                                 ng-click="newRsVm.submit()">
                             Create Reservation
                         </button>

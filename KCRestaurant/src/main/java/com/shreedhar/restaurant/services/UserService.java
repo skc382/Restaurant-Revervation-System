@@ -5,7 +5,7 @@ import com.shreedhar.restaurant.model.User;
 
 public interface UserService {
 
-	User validateUser(String user);
+	User validateUser(String emailId);
 	
 	void createUser(User user);
 }

@@ -74,10 +74,13 @@ public class RestaurantController {
 			user = mapper.convertValue(requestNode.get("user"), User.class);
 			
 			reservation = mapper.convertValue(requestNode.get("reservation"), Reservations.class);
-			seatinSize = Integer.parseInt(mapper.convertValue(requestNode.get("seatinSize"), String.class));
+			seatinSize = mapper.convertValue(requestNode.get("seatinSize"), Integer.class);
 			
-			reservationsService.createReservations(user, reservation, seatinSize);
-			retReservation = reservationsService.getReservationByConfimationNumber(reservation.getConfirmationId());
+			retReservation = reservationsService.createReservations(user, reservation, seatinSize);
+			
+			if(retReservation == null){
+				return new ResponseEntity<Object>("NO_RESERVATIONS", HttpStatus.NO_CONTENT);
+			}
 			
 			return new ResponseEntity<Object>(retReservation, HttpStatus.OK);
 		} catch (Exception e) {

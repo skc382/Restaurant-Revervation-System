@@ -11,6 +11,6 @@ public interface ReservationsServices {
 		
 	Reservations getReservationByConfimationNumber(String ConfirmationNumber);
 	
-	void createReservations(User user, Reservations reservation, Integer seatinSize);
+	Reservations createReservations(User user, Reservations reservation, Integer seatinSize);
 	
 }

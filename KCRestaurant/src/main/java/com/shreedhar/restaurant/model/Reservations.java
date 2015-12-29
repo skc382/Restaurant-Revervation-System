@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Table(name = "reservations")
 public class Reservations {
 	
+	public static final Reservations NO_RESERVATION = null;
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "id")	

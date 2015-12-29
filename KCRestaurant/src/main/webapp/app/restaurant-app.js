@@ -26,6 +26,11 @@
                 controller: 'NewReservationCtrl',
                 controllerAs: 'newRsVm'
             })
+            .when('/newReservation/cnfrm/:reservationObj', {
+                templateUrl: 'app/views/new.reservation.cnfrm.tmpl.html',
+                controller: 'ConfirmReservationCtrl',
+                controllerAs: 'cnfrmRsVm'
+            })
             .when('/viewReservationCnfNumber', {
                 templateUrl: 'app/views/view.reservations.cnf.number.tmpl.html',
                 controller: 'ViewReservationCnfNumberCtrl',

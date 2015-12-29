@@ -101,6 +101,7 @@
                     defer.resolve(data);
                 }
             ).error(function (err, status) {
+            	console.log("This is error");
             	console.log(err);
                 console.log(status);
                 defer.reject("time-un-available");
