@@ -1,0 +1,94 @@
+<!-- main div placeholder  -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10 middle-section-background-Customer">
+            <header class="customer-header"><h1><strong>Your Reservation</strong></h1></header>
+            <table class="table col-lg-6">
+                <tbody>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Confirmation Number :</label>
+                    </td>
+                    <td class="has-warning">
+                        <label class="control-label">{{cnfrmRsVm.reservation.confirmationId}}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Name :</label>
+                    </td>
+                    <td class="has-warning">
+                        <label class="control-label">{{cnfrmRsVm.reservation.user.userName}}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Email :</label>
+                    </td>
+                    <td class="has-warning">
+                        <label class="control-label">{{cnfrmRsVm.reservation.user.emailId}}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Phone Number :</label>
+                    </td>
+                    <td class="has-warning">
+                        <label class="control-label">{{cnfrmRsVm.reservation.user.phone}}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Date :</label>
+                    </td>
+                    <td class="has-warning">
+                        <span>
+                            <label class="control-label">{{cnfrmRsVm.reservation.date}}</label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Time :</label>
+                    </td>
+                    <td class="has-warning">
+                        <span>
+                            <label class="control-label">{{cnfrmRsVm.reservation.startTime}}</label>
+                            <label class="control-label"><strong>to</strong></label>
+                            <label class="control-label">{{cnfrmRsVm.reservation.endTime}}</label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="has-success">
+                        <label class="control-label">Table Size :</label>
+                    </td>
+                    <td class="has-warning">
+                        <span>
+                            <label class="control-label">{{cnfrmRsVm.reservation.restaurantTable.seatinSize}}</label>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group last-element">
+                <div class="col-lg-3 col-md-1"></div>
+                <div class="form-group col-lg-6 col-md-6">
+                    <div class=" col-lg-offset-5 col-md-offset-2">
+                        <button type="button" class="col-lg-3 col-md-4 btn btn-success"
+                                ng-click="cnfrmRsVm.okay()">
+                            Okay !
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-1"></div>
+            </div>
+        </div>
+        <!-- Empty div to align the middle div-->
+        <div class="col-lg-2 col-md-1"></div>
+    </div>
+</div>
+<!-- ng-view placeholder -->
