@@ -8,9 +8,9 @@
     angular.module('restaurant')
         .controller('NewReservationCtrl', NewReservationCtrl);
 
-    NewReservationCtrl.$inject = ['dataServices', '$route', '$filter', '$location'];
+    NewReservationCtrl.$inject = ['dataServices', '$route', '$filter', '$location', '$rootScope', '$timeout'];
 
-    function NewReservationCtrl(dataServices, $route, $filter, $location) {
+    function NewReservationCtrl(dataServices, $route, $filter, $location, $rootScope, $timeout) {
         var newRsVm = this;
         newRsVm.isTimeAvailable = false;
         newRsVm.placeholder = {};
@@ -70,7 +70,12 @@
                 .then(function(data){
                     console.log("Received data");
                     console.log(data);
-                    $location.path('/newReservation/cnfrm/'+data);
+                    $location.path('/newReservation/cnfrm/');
+                    $timeout(function () {
+                    	//Event will be caught by New Reservation Cnfrm Controller.
+                    	$rootScope.$broadcast('sendingReservationConfimationObject', data); 
+                    }, 100);
+                    
                 }, function(error){
                     if(error === "time-un-available"){
                         newRsVm.isTimeAvailable = true;

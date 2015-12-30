@@ -18,6 +18,7 @@
         function execute(){
         	dataServices.getOwnerReservations()
             .then(function (data) {
+            	console.log(data);
                 ownerRsVm.reservations = data;
             });
         }

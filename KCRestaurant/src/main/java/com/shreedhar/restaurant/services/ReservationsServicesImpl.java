@@ -39,7 +39,6 @@ public class ReservationsServicesImpl implements ReservationsServices {
 		return reservationsDao.getReservationByConfirmationNumber(ConfirmationNumber);
 	}
 	
-	
 	@Override
 	public Reservations createReservations(User userInput, Reservations reservationInput, Integer seatinSize) {
 

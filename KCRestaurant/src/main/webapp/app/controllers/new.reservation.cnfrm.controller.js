@@ -8,18 +8,19 @@
     angular.module('restaurant')
         .controller('ConfirmReservationCtrl', ConfirmReservationCtrl);
 
-    ConfirmReservationCtrl.$inject = ['dataServices', '$routeParams', '$location'];
+    ConfirmReservationCtrl.$inject = ['dataServices', '$routeParams', '$location', '$rootScope'];
 
-    function ConfirmReservationCtrl(dataServices, $routeParams, $location) {
+    function ConfirmReservationCtrl(dataServices, $routeParams, $location, $rootScope) {
         var cnfrmRsVm = this;
         cnfrmRsVm.reservation = {};
-        execute($routeParams.reservationObj);
-
-        function execute(reservationObj){
+        
+        $rootScope.$on('sendingReservationConfimationObject', function(event, args){
             console.log("reservation objec is");
-            console.dir(reservationObj.Reservations);
-            cnfrmRsVm.reservation = reservationObj.Reservations;
-        }
+            console.log(args);
+            cnfrmRsVm.reservation = args;
+            console.log("The Cnfrm Vm obj is :");
+            console.log(cnfrmRsVm.reservation);
+        });
 
         cnfrmRsVm.okay = function(){
             $location.path('/home');

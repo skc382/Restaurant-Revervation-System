@@ -61,19 +61,15 @@
 
         resProfileVm.submit = function () {
         	resProfileVm.isEditable = false;
-//            console.dir(resProfileVm.restaurantProfile.restaurantdetails.timings);
         }
         
         resProfileVm.cancel = function () {
             resProfileVm.isEditable = false;
-//            var currentPageTemplate = $route.current.templateUrl;
-//            $templateCache.remove(currentPageTemplate);
             $route.reload();
         }
         
         resProfileVm.edit = function () {
             resProfileVm.isEditable = true;
-//            console.dir(resProfileVm.restaurantProfile.restaurantdetails.timings);
         }
         
     }

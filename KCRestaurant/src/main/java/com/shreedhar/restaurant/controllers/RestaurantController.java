@@ -33,6 +33,9 @@ public class RestaurantController {
 	@Autowired
 	ReservationsServices reservationsService;
 
+	/*
+	 * Owner Api's
+	 */
 	@RequestMapping(value="/loginn", method = RequestMethod.POST)
 	public ResponseEntity<User> ownerLogin(@RequestBody User user) {
 		User retUser = service.validateUser(user.getEmailId());
@@ -55,14 +58,21 @@ public class RestaurantController {
 		return new ResponseEntity<List<Reservations>>(reservations, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/owner/reservations/details", method = RequestMethod.GET)
-	public ResponseEntity<Reservations> reservationDetails(@RequestParam("conf_number") String confirmationNumber) {
-		Reservations reservations = reservationsService.getReservationByConfimationNumber(confirmationNumber);	
-		System.out.println("Reservation is: "+ reservations);
-		return new ResponseEntity<Reservations>(reservations, HttpStatus.OK);
+	// Multiple paths mapped to this handler one for owner and one for customer
+	@RequestMapping(value = {"/owner/reservations/details", "reservations/details"}, method = RequestMethod.GET)
+	public ResponseEntity<Object> reservationDetails(@RequestParam("conf_number") String confirmationNumber) {
+		Reservations retReservation = reservationsService.getReservationByConfimationNumber(confirmationNumber);	
+		System.out.println("Reservation is: "+ retReservation);
+		if(retReservation == null){
+			return new ResponseEntity<Object>("NO_RESERVATIONS", HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<Object>(retReservation, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/owner/reservations/create", method = RequestMethod.POST)
+	/*
+	 * General api's
+	 */
+	@RequestMapping(value = "/reservations/create", method = RequestMethod.POST)
 	public ResponseEntity<Object> createReservation(@RequestBody String reservationString) {
 		ObjectMapper mapper = new ObjectMapper();
 		User user;
@@ -89,9 +99,7 @@ public class RestaurantController {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
-	}
-	
-	
+	}	
 	
 }
 

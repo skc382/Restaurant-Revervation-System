@@ -4,35 +4,17 @@
     angular.module('restaurant')
         .controller('ViewReservationDisplayCtrl', ViewReservationDisplayCtrl);
 
-    ViewReservationDisplayCtrl.$inject = ['dataServices', '$routeParams', '$route'];
+    ViewReservationDisplayCtrl.$inject = ['dataServices', '$location', '$rootScope', '$timeout', '$route'];
 
-    function ViewReservationDisplayCtrl(dataServices, $routeParams, $route) {
+    function ViewReservationDisplayCtrl(dataServices, $location, $rootScope, $timeout, $route) {
         var viewRsDisplayVm = this;
         viewRsDisplayVm.isEditable = false;
         viewRsDisplayVm.details = {};
 
-        execute($routeParams.confirmationId);
-
-        function execute(cnfId) {
-            //dataServices.getOwnerReservationDetails(cnfId)
-            //    .then(function (data) {
-            //        viewRsDisplayVm.details = data;
-            //        console.log('These is the view Reservations: ');
-            //        console.dir(viewRsDisplayVm.details);
-            //    });
-            viewRsDisplayVm.details = {
-                obj: {
-                    cnfName: $routeParams.confirmationId,
-                    name: "shredhar",
-                    email: "email blah",
-                    phoneNumber: "8622011954",
-                    startTime: "23:20:00",
-                    endTime: "00:00:00",
-                    tableSize: "3"
-                }
-
-            };
-        }
+        $rootScope.$on('customerReservationsEvent', function(event, args){
+            console.log("Received customer reservation data: "+ args);
+            viewRsDisplayVm.details = args;
+        });
 
         viewRsDisplayVm.edit = function () {
             viewRsDisplayVm.isEditable = true;
@@ -43,7 +25,12 @@
         }
 
         viewRsDisplayVm.cancel = function () {
-        	$route.reload();
+        	 var that = viewRsDisplayVm.details;
+             $route.reload();
+             $timeout(function () {
+                 //Event will be caught by view reservation display Controller.
+                 $rootScope.$broadcast('customerReservationsEvent', that);
+             }, 100);
         }
     }
 })();

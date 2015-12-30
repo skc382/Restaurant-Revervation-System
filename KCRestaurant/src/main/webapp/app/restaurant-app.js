@@ -26,7 +26,7 @@
                 controller: 'NewReservationCtrl',
                 controllerAs: 'newRsVm'
             })
-            .when('/newReservation/cnfrm/:reservationObj', {
+            .when('/newReservation/cnfrm/', {
                 templateUrl: 'app/views/new.reservation.cnfrm.tmpl.html',
                 controller: 'ConfirmReservationCtrl',
                 controllerAs: 'cnfrmRsVm'
@@ -36,7 +36,7 @@
                 controller: 'ViewReservationCnfNumberCtrl',
                 controllerAs: 'viewRsCnfVm'
             })
-            .when('/viewReservationDisplay/:confirmationId', {
+            .when('/viewReservationDisplay/', {
                 templateUrl: 'app/views/view.reservations.display.tmpl.html',
                 controller: 'ViewReservationDisplayCtrl',
                 controllerAs: 'viewRsDisplayVm'
@@ -56,7 +56,6 @@
                 controller: 'OwnerReservationDetailsCtrl',
                 controllerAs: 'ownerRsDtVm'
             })
-
             .otherwise({
             redirectTo: '/home'
         });
