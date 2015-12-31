@@ -18,6 +18,7 @@ import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 @ComponentScan(basePackages = "com.shreedhar.restaurant")
 public class RestaurantConfiguration extends WebMvcConfigurerAdapter{
 	
+	 //Configuaration
 	  @Bean
 	    public VelocityConfigurer velocityConfig() {
 	        VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
