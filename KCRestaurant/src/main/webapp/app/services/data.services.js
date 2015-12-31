@@ -97,7 +97,7 @@
 
 			$http({
 				method: 'Post',
-				url: 'http://localhost:8080/KCRestaurant/rest/api/owner/reservations/create',
+				url: 'http://localhost:8080/KCRestaurant/rest/api/reservations/create',
 				data: reservationString
 			}
 			).success(function (data) {
